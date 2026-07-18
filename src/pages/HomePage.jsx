@@ -1,7 +1,7 @@
 import { MapPin, Phone, UtensilsCrossed } from 'lucide-react';
 import FacebookIcon from '../components/FacebookIcon';
 import { Link } from 'react-router-dom';
-import { business } from '../data/siteData';
+import { business, landingChalkboard } from '../data/siteData';
 
 export default function HomePage() {
   return (
@@ -12,6 +12,23 @@ export default function HomePage() {
       <div className="home-logo-wrap">
         <img src="/assets/island-sign-logo.png" alt="The Island Waterfront Bar & Grill — Where The Locals Go — Live Bands" />
       </div>
+
+      <aside className="ground-chalkboard" aria-label="Today at The Island">
+        <div className="chalkboard-frame">
+          <div className="chalkboard-face">
+            <span className="chalkboard-kicker">{landingChalkboard.kicker}</span>
+            <strong>{landingChalkboard.headline}</strong>
+            <span className="chalkboard-flourish">~ ~ ~</span>
+            {landingChalkboard.lines.map((line) => (
+              <span className="chalkboard-line" key={line}>{line}</span>
+            ))}
+            <span className="chalkboard-footer">{landingChalkboard.footer}</span>
+          </div>
+        </div>
+        <span className="chalkboard-leg chalkboard-leg-left" />
+        <span className="chalkboard-leg chalkboard-leg-right" />
+        <span className="chalkboard-ground-shadow" />
+      </aside>
 
       <div className="home-actions">
         <Link className="button button-primary" to="/menu">

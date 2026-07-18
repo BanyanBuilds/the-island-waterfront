@@ -11,6 +11,15 @@ export const business = {
   liveMusicDays: ['Friday', 'Saturday', 'Sunday'],
 };
 
+
+
+export const landingChalkboard = {
+  kicker: 'TODAY AT THE ISLAND',
+  headline: 'COLD DRINKS',
+  lines: ['WATERFRONT VIEWS', 'GOOD FOOD', 'LIVE MUSIC FRI–SUN'],
+  footer: 'COME AS YOU ARE',
+};
+
 export const routes = [
   { path: '/', label: 'Home', eyebrow: 'Where the locals go' },
   { path: '/waterfront', label: 'Waterfront', eyebrow: 'Banana River views' },
