@@ -22,6 +22,17 @@ begin
 end;
 $$;
 
+-- ---------------------------------------------------------------------------
+-- Admin authorization
+-- ---------------------------------------------------------------------------
+create table if not exists public.admin_users (
+  user_id uuid primary key references auth.users(id) on delete cascade,
+  display_name text,
+  created_at timestamptz not null default now()
+);
+
+alter table public.admin_users enable row level security;
+
 create or replace function public.is_site_admin()
 returns boolean
 language sql
@@ -35,17 +46,6 @@ as $$
     where user_id = auth.uid()
   );
 $$;
-
--- ---------------------------------------------------------------------------
--- Admin authorization
--- ---------------------------------------------------------------------------
-create table if not exists public.admin_users (
-  user_id uuid primary key references auth.users(id) on delete cascade,
-  display_name text,
-  created_at timestamptz not null default now()
-);
-
-alter table public.admin_users enable row level security;
 
 create policy "Admins can read their own admin record"
 on public.admin_users for select
