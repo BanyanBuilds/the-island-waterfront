@@ -2058,16 +2058,20 @@ a {
 }
 
 
-/* V22: remove the obsolete live-music ribbon and refine mobile landing controls. */
+/* V23: keep the wood live-music ribbon on desktop only. */
 .page-home {
-  padding-bottom: 30px;
+  padding-bottom: 94px;
 }
 
 .home-live-ribbon {
-  display: none !important;
+  display: grid;
 }
 
 @media (max-width: 780px) {
+  .home-live-ribbon {
+    display: none !important;
+  }
+
   .page-home {
     padding-bottom: max(8px, env(safe-area-inset-bottom));
   }
