@@ -52,7 +52,6 @@ export default function HomePage() {
         <a className="button button-ghost" href={business.phoneHref}><Phone size={18} /> Call</a>
       </div>
 
-      <div className="home-live-ribbon"><div><span className="live-dot" /><strong>LIVE MUSIC EVERY FRIDAY–SUNDAY</strong></div></div>
     </section>
   );
 }
