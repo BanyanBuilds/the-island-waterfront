@@ -2040,3 +2040,19 @@ a {
   .ground-chalkboard { top: 242px; right: 12px; width: 132px; height: 210px; }
   .home-actions { left: 12px; right: 40px; }
 }
+
+/* V21: dedicated mobile landing photograph supplied by the owner. */
+@media (max-width: 780px) {
+  .page-home {
+    background-image: url('/assets/island-mobile-hero.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+  }
+
+  .page-home .hero-shade {
+    background:
+      linear-gradient(180deg, rgba(4,10,12,0.03) 62px, rgba(4,10,12,0.08) 42%, rgba(4,10,12,0.52) 76%, rgba(4,10,12,0.82) 100%),
+      linear-gradient(90deg, rgba(4,10,12,0.15), transparent 70%);
+  }
+}
