@@ -1,10 +1,16 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { menuCategories } from '../data/siteData';
 import PageIntro from '../components/PageIntro';
 
 export default function MenuPage() {
   const [active, setActive] = useState(menuCategories[0].id);
+  const tabsRef = useRef(null);
   const category = menuCategories.find((item) => item.id === active) ?? menuCategories[0];
+
+  useEffect(() => {
+    const activeButton = tabsRef.current?.querySelector('[aria-selected="true"]');
+    activeButton?.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+  }, [active]);
 
   return (
     <section className="page page-menu">
@@ -16,7 +22,14 @@ export default function MenuPage() {
           dark
         />
 
-        <div className="menu-tabs" data-swipe-lock="true" role="tablist" aria-label="Menu categories">
+        <label className="mobile-category-picker" data-swipe-lock="true">
+          <span>Choose a menu category</span>
+          <select value={active} onChange={(event) => setActive(event.target.value)} aria-label="Choose a menu category">
+            {menuCategories.map((item) => <option key={item.id} value={item.id}>{item.label}</option>)}
+          </select>
+        </label>
+
+        <div ref={tabsRef} className="menu-tabs" data-swipe-lock="true" role="tablist" aria-label="Menu categories">
           {menuCategories.map((item) => (
             <button
               key={item.id}

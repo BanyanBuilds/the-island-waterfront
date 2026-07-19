@@ -76,3 +76,11 @@ The mouse wheel changes pages on desktop. On the Menu page, the menu panel scrol
 
 - Display: `(321) 806-3661`
 - Click-to-call: `tel:+13218063661`
+
+## V20 mobile fixes
+
+- Rebuilt the mobile landing composition so the full landscape hero photo remains visible instead of being aggressively cropped.
+- Repositioned the mobile sign, chalkboard, action buttons, and live-music ribbon to prevent overlap.
+- Added a native mobile menu-category selector so every category is always reachable.
+- Preserved horizontal swipe/scroll tabs with a visible scrollbar and improved touch handling.
+- Preserved the approved desktop layout.

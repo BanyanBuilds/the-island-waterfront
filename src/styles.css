@@ -1898,3 +1898,145 @@ a {
     height: 214px;
   }
 }
+
+/* V20 mobile landing and menu usability fixes */
+.mobile-category-picker { display: none; }
+
+@media (max-width: 780px) {
+  /* Show the entire landscape hero photo instead of forcing a destructive portrait crop. */
+  .page-home {
+    display: block;
+    padding: 62px 14px 76px;
+    background-color: #071012;
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+    background-position: center 62px;
+  }
+
+  .page-home .hero-shade {
+    background:
+      linear-gradient(180deg, rgba(4,10,12,0.04) 62px, rgba(4,10,12,0.08) 245px, rgba(4,10,12,0.95) 390px, #071012 68%),
+      linear-gradient(90deg, rgba(4,10,12,0.22), transparent 72%);
+  }
+
+  .page-home .hero-grain { opacity: 0.12; }
+
+  .home-logo-wrap {
+    position: absolute;
+    top: 76px;
+    left: 10px;
+    width: min(48vw, 205px);
+    margin: 0;
+    transform: rotate(-1deg);
+    filter: drop-shadow(0 9px 16px rgba(0,0,0,.58));
+  }
+
+  .home-actions {
+    position: absolute;
+    left: 14px;
+    right: 42px;
+    bottom: 76px;
+    z-index: 10;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+    margin: 0;
+  }
+
+  .home-actions .button {
+    width: 100%;
+    min-width: 0;
+    padding-inline: 8px;
+    white-space: nowrap;
+  }
+
+  .home-live-ribbon {
+    min-height: 62px;
+    padding: 0 42px 0 14px;
+  }
+
+  .home-live-ribbon > div {
+    justify-content: center;
+    width: 100%;
+  }
+
+  .home-live-ribbon > div strong {
+    font-size: 8px;
+    letter-spacing: .11em;
+    text-align: center;
+  }
+
+  .ground-chalkboard {
+    top: clamp(245px, 35vh, 300px);
+    right: 18px;
+    width: 142px;
+    height: 226px;
+    transform: rotate(1deg);
+  }
+
+  .chalkboard-frame { height: calc(100% - 42px); }
+  .chalkboard-events { width: 100%; overflow: hidden; }
+  .chalkboard-event { margin: 3px 0; line-height: 1.05; }
+  .chalkboard-event span { display: block; font-size: 6px; color: #f0c66f; }
+  .chalkboard-event b { display: block; font-size: 9px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .chalkboard-loading { font-size: 8px; }
+
+  /* A native picker guarantees every category is reachable on phones. */
+  .mobile-category-picker {
+    flex: 0 0 auto;
+    display: grid;
+    gap: 5px;
+  }
+
+  .mobile-category-picker span {
+    font-size: 8px;
+    font-weight: 900;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: rgba(12,22,24,.58);
+  }
+
+  .mobile-category-picker select {
+    width: 100%;
+    min-height: 42px;
+    padding: 9px 38px 9px 11px;
+    border: 2px solid var(--river);
+    border-radius: 0;
+    color: #fff;
+    background: var(--river);
+    font-size: 12px;
+    font-weight: 900;
+    letter-spacing: .07em;
+    text-transform: uppercase;
+  }
+
+  .menu-tabs {
+    width: 100%;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    flex-wrap: nowrap;
+    padding: 1px 1px 8px;
+    scroll-snap-type: x proximity;
+    scrollbar-width: auto;
+    touch-action: pan-x;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .menu-tabs::-webkit-scrollbar { height: 5px; }
+  .menu-tabs::-webkit-scrollbar-track { background: rgba(12,22,24,.1); }
+  .menu-tabs::-webkit-scrollbar-thumb { background: var(--river); }
+  .menu-tabs button { scroll-snap-align: start; }
+
+  .menu-list {
+    touch-action: pan-y;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-y: contain;
+  }
+}
+
+@media (max-width: 430px) {
+  .page-home { background-position: center 62px; }
+  .home-logo-wrap { width: 46vw; top: 72px; }
+  .ground-chalkboard { top: 242px; right: 12px; width: 132px; height: 210px; }
+  .home-actions { left: 12px; right: 40px; }
+}
